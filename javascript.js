@@ -1,26 +1,22 @@
 const container = document.querySelector('#gridContainer')
 
-function createGrid(squares = 16) {
-    for (let i = 0; i < squares; i++) {
-        newRow = document.createElement('div')
-        newRow.classList.add("row")
-        for (let i = 0; i <squares; i++) {
-            newCell = document.createElement('div')
-            newCell.classList.add("cell")
-            newRow.appendChild(newCell)
-        }
-        container.appendChild(newRow)
+function createGrid(size = 16) {
+    for (let i = 0; i < (size*size); i++) {
         newDiv = document.createElement('div')
+        newDiv.classList.add('cell')
+        newDiv.style.width = `${800/size}px`
+        newDiv.style.height = `${800/size}px`
+        container.appendChild(newDiv)
     }
 }
 
 createGrid()
 
-
 container.addEventListener('mouseover', (event) => {
     element = event.target
     element.style.backgroundColor = 'black'
 })
+
 
 function getSize() {
     input = 101
